@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="company">
+            <h2><span jhiTranslate="accessApp.company.detail.title">Company</span> {{ company.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessApp.company.address">Address</span></dt>
+                <dd>
+                    <span>{{ company.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.company.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ company.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.company.fax">Fax</span></dt>
+                <dd>
+                    <span>{{ company.fax }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/company', company.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

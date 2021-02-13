@@ -1,0 +1,124 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-job-heading" jhiTranslate="accessApp.job.home.createOrEditLabel">Create or edit a Job</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.reportedBy" for="field_reportedBy">Reported By</label>
+                    <input type="text" class="form-control" name="reportedBy" id="field_reportedBy"
+                           formControlName="reportedBy"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.clientOrderRef" for="field_clientOrderRef">Client Order Ref</label>
+                    <input type="text" class="form-control" name="clientOrderRef" id="field_clientOrderRef"
+                           formControlName="clientOrderRef"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.raiseDate" for="field_raiseDate">Raise Date</label>
+                    <input type="text" class="form-control" name="raiseDate" id="field_raiseDate"
+                           formControlName="raiseDate"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.priority" for="field_priority">Priority</label>
+                    <input type="text" class="form-control" name="priority" id="field_priority"
+                           formControlName="priority"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.fault" for="field_fault">Fault</label>
+                    <input type="text" class="form-control" name="fault" id="field_fault"
+                           formControlName="fault"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.instructions" for="field_instructions">Instructions</label>
+                    <input type="text" class="form-control" name="instructions" id="field_instructions"
+                           formControlName="instructions"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.occupier" for="field_occupier">Occupier</label>
+                    <input type="text" class="form-control" name="occupier" id="field_occupier"
+                           formControlName="occupier"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.homeTel" for="field_homeTel">Home Tel</label>
+                    <input type="text" class="form-control" name="homeTel" id="field_homeTel"
+                           formControlName="homeTel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.workTel" for="field_workTel">Work Tel</label>
+                    <input type="text" class="form-control" name="workTel" id="field_workTel"
+                           formControlName="workTel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.mobileTel" for="field_mobileTel">Mobile Tel</label>
+                    <input type="text" class="form-control" name="mobileTel" id="field_mobileTel"
+                           formControlName="mobileTel"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.tenantName" for="field_tenantName">Tenant Name</label>
+                    <input type="text" class="form-control" name="tenantName" id="field_tenantName"
+                           formControlName="tenantName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.complete" for="field_complete">Complete</label>
+                    <input type="text" class="form-control" name="complete" id="field_complete"
+                           formControlName="complete"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.position" for="field_position">Position</label>
+                    <input type="text" class="form-control" name="position" id="field_position"
+                           formControlName="position"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.invoice" for="field_invoice">Invoice</label>
+                    <input type="text" class="form-control" name="invoice" id="field_invoice"
+                           formControlName="invoice"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.invoiceDetails" for="field_invoiceDetails">Invoice Details</label>
+                    <input type="text" class="form-control" name="invoiceDetails" id="field_invoiceDetails"
+                           formControlName="invoiceDetails"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="accessApp.job.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="clientId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientOption.id" *ngFor="let clientOption of clients; trackBy: trackById">{{ clientOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

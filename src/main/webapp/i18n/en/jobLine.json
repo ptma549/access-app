@@ -1,0 +1,25 @@
+{
+  "accessApp": {
+    "jobLine": {
+      "home": {
+        "title": "Job Lines",
+        "createLabel": "Create a new Job Line",
+        "createOrEditLabel": "Create or edit a Job Line",
+        "notFound": "No Job Lines found"
+      },
+      "created": "A new Job Line is created with identifier {{ param }}",
+      "updated": "A Job Line is updated with identifier {{ param }}",
+      "deleted": "A Job Line is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Job Line {{ id }}?"
+      },
+      "detail": {
+        "title": "Job Line"
+      },
+      "material": "Material",
+      "quantity": "Quantity",
+      "unitCost": "Unit Cost",
+      "job": "Job"
+    }
+  }
+}

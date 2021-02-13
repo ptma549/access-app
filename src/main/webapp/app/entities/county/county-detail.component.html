@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="county">
+            <h2><span jhiTranslate="accessApp.county.detail.title">County</span> {{ county.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessApp.county.name">Name</span></dt>
+                <dd>
+                    <span>{{ county.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.county.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="county.clientId">
+                        <a [routerLink]="['/client', county.clientId, 'view']">{{ county.clientId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/county', county.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

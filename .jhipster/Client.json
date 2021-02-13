@@ -1,0 +1,57 @@
+{
+  "name": "Client",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postcode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telephone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fax",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "county",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "counties"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "jobs"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "ptmAccount",
+      "otherEntityRelationshipName": "clients",
+      "relationshipName": "account",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213154854",
+  "entityTableName": "client",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

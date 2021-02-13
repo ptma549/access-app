@@ -1,0 +1,35 @@
+{
+  "name": "County",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "town",
+      "otherEntityRelationshipName": "county",
+      "relationshipName": "town"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "counties",
+      "relationshipName": "client",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213155054",
+  "entityTableName": "county",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

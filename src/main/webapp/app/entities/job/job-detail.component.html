@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="job">
+            <h2><span jhiTranslate="accessApp.job.detail.title">Job</span> {{ job.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessApp.job.reportedBy">Reported By</span></dt>
+                <dd>
+                    <span>{{ job.reportedBy }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.clientOrderRef">Client Order Ref</span></dt>
+                <dd>
+                    <span>{{ job.clientOrderRef }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.raiseDate">Raise Date</span></dt>
+                <dd>
+                    <span>{{ job.raiseDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.priority">Priority</span></dt>
+                <dd>
+                    <span>{{ job.priority }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.fault">Fault</span></dt>
+                <dd>
+                    <span>{{ job.fault }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.instructions">Instructions</span></dt>
+                <dd>
+                    <span>{{ job.instructions }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.occupier">Occupier</span></dt>
+                <dd>
+                    <span>{{ job.occupier }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.homeTel">Home Tel</span></dt>
+                <dd>
+                    <span>{{ job.homeTel }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.workTel">Work Tel</span></dt>
+                <dd>
+                    <span>{{ job.workTel }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.mobileTel">Mobile Tel</span></dt>
+                <dd>
+                    <span>{{ job.mobileTel }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.tenantName">Tenant Name</span></dt>
+                <dd>
+                    <span>{{ job.tenantName }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.complete">Complete</span></dt>
+                <dd>
+                    <span>{{ job.complete }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.position">Position</span></dt>
+                <dd>
+                    <span>{{ job.position }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.invoice">Invoice</span></dt>
+                <dd>
+                    <span>{{ job.invoice }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.invoiceDetails">Invoice Details</span></dt>
+                <dd>
+                    <span>{{ job.invoiceDetails }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.job.client">Client</span></dt>
+                <dd>
+                    <div *ngIf="job.clientId">
+                        <a [routerLink]="['/client', job.clientId, 'view']">{{ job.clientId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job', job.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

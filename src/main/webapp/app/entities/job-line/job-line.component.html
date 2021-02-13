@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="accessApp.jobLine.home.title">Job Lines</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-job-line" [routerLink]="['/job-line/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="accessApp.jobLine.home.createLabel">
+            Create a new Job Line
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="jobLines?.length === 0">
+        <span jhiTranslate="accessApp.jobLine.home.notFound">No jobLines found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="jobLines && jobLines.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="material"><span jhiTranslate="accessApp.jobLine.material">Material</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="quantity"><span jhiTranslate="accessApp.jobLine.quantity">Quantity</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="unitCost"><span jhiTranslate="accessApp.jobLine.unitCost">Unit Cost</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="jobId"><span jhiTranslate="accessApp.jobLine.job">Job</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jobLine of jobLines ;trackBy: trackId">
+                    <td><a [routerLink]="['/job-line', jobLine.id, 'view']">{{ jobLine.id }}</a></td>
+                    <td>{{ jobLine.material }}</td>
+                    <td>{{ jobLine.quantity }}</td>
+                    <td>{{ jobLine.unitCost }}</td>
+                    <td>
+                        <div *ngIf="jobLine.jobId">
+                            <a [routerLink]="['/job', jobLine.jobId , 'view']" >{{ jobLine.jobId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/job-line', jobLine.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/job-line', jobLine.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(jobLine)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="jobLines && jobLines.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

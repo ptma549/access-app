@@ -1,0 +1,35 @@
+{
+  "name": "Street",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "number",
+      "otherEntityRelationshipName": "street",
+      "relationshipName": "numbers"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "town",
+      "otherEntityRelationshipName": "streets",
+      "relationshipName": "town",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213155854",
+  "entityTableName": "street",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

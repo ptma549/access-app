@@ -1,0 +1,103 @@
+
+entity PtmAccount {
+    name String,
+    colour String
+}
+entity Client {
+name String,
+address String,
+postcode String,
+telephone String,
+fax String
+}
+relationship OneToMany {
+    PtmAccount{clients} to Client{account}
+}
+entity Company {
+address String,
+telephone String,
+fax String
+}
+entity County {
+	name String
+}
+relationship OneToMany {
+    Client{counties} to County{client}
+}
+entity Job {
+reportedBy String,
+clientOrderRef String,
+raiseDate String,
+priority String,
+fault String,
+instructions String,
+occupier String,
+homeTel String,
+workTel String,
+mobileTel String,
+tenantName String,
+complete String,
+position String,
+invoice String,
+invoiceDetails String
+}
+relationship OneToMany {
+    Client{jobs} to Job{client}
+}
+entity JobComment {
+comment String
+}
+relationship OneToMany {
+    Job{comments} to JobComment{job}
+}
+entity JobLine {
+material String,
+quantity Integer,
+unitCost BigDecimal
+}
+relationship OneToMany {
+    Job{lines} to JobLine{job}
+}
+entity JobVisit {
+arrived ZonedDateTime,
+departed ZonedDateTime,
+charge BigDecimal,
+workCarriedOut String
+}
+relationship OneToMany {
+    Job{visits} to JobVisit{job}
+}
+entity Number {
+	value String,
+    building String,
+    postcode String
+}
+relationship OneToMany {
+    Street{numbers} to Number{street}
+}
+entity Position {
+	value String,
+}
+relationship OneToMany {
+    Number{positions} to Position{number}
+}
+entity Priority {
+	value String
+}
+entity Street {
+	value String
+}
+relationship OneToMany {
+    Town{streets} to Street{town}
+}
+entity Town {
+	value String
+}
+relationship OneToMany {
+    County{town} to Town{county}
+}
+
+filter all
+dto all with mapstruct
+paginate all with pagination
+service all with serviceClass

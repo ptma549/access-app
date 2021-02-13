@@ -1,0 +1,40 @@
+{
+  "accessApp": {
+    "job": {
+      "home": {
+        "title": "Jobs",
+        "createLabel": "Create a new Job",
+        "createOrEditLabel": "Create or edit a Job",
+        "notFound": "No Jobs found"
+      },
+      "created": "A new Job is created with identifier {{ param }}",
+      "updated": "A Job is updated with identifier {{ param }}",
+      "deleted": "A Job is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Job {{ id }}?"
+      },
+      "detail": {
+        "title": "Job"
+      },
+      "reportedBy": "Reported By",
+      "clientOrderRef": "Client Order Ref",
+      "raiseDate": "Raise Date",
+      "priority": "Priority",
+      "fault": "Fault",
+      "instructions": "Instructions",
+      "occupier": "Occupier",
+      "homeTel": "Home Tel",
+      "workTel": "Work Tel",
+      "mobileTel": "Mobile Tel",
+      "tenantName": "Tenant Name",
+      "complete": "Complete",
+      "position": "Position",
+      "invoice": "Invoice",
+      "invoiceDetails": "Invoice Details",
+      "comments": "Comments",
+      "lines": "Lines",
+      "visits": "Visits",
+      "client": "Client"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "JobVisit",
+  "fields": [
+    {
+      "fieldName": "arrived",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "departed",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "charge",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "workCarriedOut",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "visits",
+      "relationshipName": "job",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213155454",
+  "entityTableName": "job_visit",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

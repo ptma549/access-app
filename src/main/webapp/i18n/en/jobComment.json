@@ -1,0 +1,23 @@
+{
+  "accessApp": {
+    "jobComment": {
+      "home": {
+        "title": "Job Comments",
+        "createLabel": "Create a new Job Comment",
+        "createOrEditLabel": "Create or edit a Job Comment",
+        "notFound": "No Job Comments found"
+      },
+      "created": "A new Job Comment is created with identifier {{ param }}",
+      "updated": "A Job Comment is updated with identifier {{ param }}",
+      "deleted": "A Job Comment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Job Comment {{ id }}?"
+      },
+      "detail": {
+        "title": "Job Comment"
+      },
+      "comment": "Comment",
+      "job": "Job"
+    }
+  }
+}

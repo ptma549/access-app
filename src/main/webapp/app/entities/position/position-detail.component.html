@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="position">
+            <h2><span jhiTranslate="accessApp.position.detail.title">Position</span> {{ position.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessApp.position.value">Value</span></dt>
+                <dd>
+                    <span>{{ position.value }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.position.number">Number</span></dt>
+                <dd>
+                    <div *ngIf="position.numberId">
+                        <a [routerLink]="['/number', position.numberId, 'view']">{{ position.numberId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/position', position.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jobVisit">
+            <h2><span jhiTranslate="accessApp.jobVisit.detail.title">Job Visit</span> {{ jobVisit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessApp.jobVisit.arrived">Arrived</span></dt>
+                <dd>
+                    <span>{{ jobVisit.arrived }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.jobVisit.departed">Departed</span></dt>
+                <dd>
+                    <span>{{ jobVisit.departed }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.jobVisit.charge">Charge</span></dt>
+                <dd>
+                    <span>{{ jobVisit.charge }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.jobVisit.workCarriedOut">Work Carried Out</span></dt>
+                <dd>
+                    <span>{{ jobVisit.workCarriedOut }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.jobVisit.job">Job</span></dt>
+                <dd>
+                    <div *ngIf="jobVisit.jobId">
+                        <a [routerLink]="['/job', jobVisit.jobId, 'view']">{{ jobVisit.jobId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job-visit', jobVisit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
