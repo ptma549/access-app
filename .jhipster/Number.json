@@ -1,0 +1,43 @@
+{
+  "name": "Number",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "building",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "postcode",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "position",
+      "otherEntityRelationshipName": "number",
+      "relationshipName": "positions"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "street",
+      "otherEntityRelationshipName": "numbers",
+      "relationshipName": "street",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213155554",
+  "entityTableName": "number",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

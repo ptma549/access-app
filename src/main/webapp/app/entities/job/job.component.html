@@ -1,0 +1,105 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="accessApp.job.home.title">Jobs</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-job" [routerLink]="['/job/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="accessApp.job.home.createLabel">
+            Create a new Job
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="jobs?.length === 0">
+        <span jhiTranslate="accessApp.job.home.notFound">No jobs found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="jobs && jobs.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="reportedBy"><span jhiTranslate="accessApp.job.reportedBy">Reported By</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="clientOrderRef"><span jhiTranslate="accessApp.job.clientOrderRef">Client Order Ref</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="raiseDate"><span jhiTranslate="accessApp.job.raiseDate">Raise Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="priority"><span jhiTranslate="accessApp.job.priority">Priority</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fault"><span jhiTranslate="accessApp.job.fault">Fault</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="instructions"><span jhiTranslate="accessApp.job.instructions">Instructions</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="occupier"><span jhiTranslate="accessApp.job.occupier">Occupier</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="homeTel"><span jhiTranslate="accessApp.job.homeTel">Home Tel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="workTel"><span jhiTranslate="accessApp.job.workTel">Work Tel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="mobileTel"><span jhiTranslate="accessApp.job.mobileTel">Mobile Tel</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="tenantName"><span jhiTranslate="accessApp.job.tenantName">Tenant Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="complete"><span jhiTranslate="accessApp.job.complete">Complete</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="position"><span jhiTranslate="accessApp.job.position">Position</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoice"><span jhiTranslate="accessApp.job.invoice">Invoice</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="invoiceDetails"><span jhiTranslate="accessApp.job.invoiceDetails">Invoice Details</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="clientId"><span jhiTranslate="accessApp.job.client">Client</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let job of jobs ;trackBy: trackId">
+                    <td><a [routerLink]="['/job', job.id, 'view']">{{ job.id }}</a></td>
+                    <td>{{ job.reportedBy }}</td>
+                    <td>{{ job.clientOrderRef }}</td>
+                    <td>{{ job.raiseDate }}</td>
+                    <td>{{ job.priority }}</td>
+                    <td>{{ job.fault }}</td>
+                    <td>{{ job.instructions }}</td>
+                    <td>{{ job.occupier }}</td>
+                    <td>{{ job.homeTel }}</td>
+                    <td>{{ job.workTel }}</td>
+                    <td>{{ job.mobileTel }}</td>
+                    <td>{{ job.tenantName }}</td>
+                    <td>{{ job.complete }}</td>
+                    <td>{{ job.position }}</td>
+                    <td>{{ job.invoice }}</td>
+                    <td>{{ job.invoiceDetails }}</td>
+                    <td>
+                        <div *ngIf="job.clientId">
+                            <a [routerLink]="['/client', job.clientId , 'view']" >{{ job.clientId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/job', job.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/job', job.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(job)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="jobs && jobs.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

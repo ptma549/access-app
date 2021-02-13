@@ -7,6 +7,19 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "ptmAccount": "Ptm Account",
+        "client": "Client",
+        "company": "Company",
+        "county": "County",
+        "job": "Job",
+        "jobComment": "Job Comment",
+        "jobLine": "Job Line",
+        "jobVisit": "Job Visit",
+        "number": "Number",
+        "position": "Position",
+        "priority": "Priority",
+        "street": "Street",
+        "town": "Town",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

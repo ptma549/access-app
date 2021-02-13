@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="jobLine">
+            <h2><span jhiTranslate="accessApp.jobLine.detail.title">Job Line</span> {{ jobLine.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="accessApp.jobLine.material">Material</span></dt>
+                <dd>
+                    <span>{{ jobLine.material }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.jobLine.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ jobLine.quantity }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.jobLine.unitCost">Unit Cost</span></dt>
+                <dd>
+                    <span>{{ jobLine.unitCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="accessApp.jobLine.job">Job</span></dt>
+                <dd>
+                    <div *ngIf="jobLine.jobId">
+                        <a [routerLink]="['/job', jobLine.jobId, 'view']">{{ jobLine.jobId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/job-line', jobLine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,30 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213154754_added_entity_PtmAccount.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213154854_added_entity_Client.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213154954_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155054_added_entity_County.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155154_added_entity_Job.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155254_added_entity_JobComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155354_added_entity_JobLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155454_added_entity_JobVisit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155554_added_entity_Number.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155654_added_entity_Position.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155754_added_entity_Priority.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155854_added_entity_Street.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155954_added_entity_Town.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210213154854_added_entity_constraints_Client.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155054_added_entity_constraints_County.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155154_added_entity_constraints_Job.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155254_added_entity_constraints_JobComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155354_added_entity_constraints_JobLine.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155454_added_entity_constraints_JobVisit.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155554_added_entity_constraints_Number.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155654_added_entity_constraints_Position.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155854_added_entity_constraints_Street.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210213155954_added_entity_constraints_Town.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

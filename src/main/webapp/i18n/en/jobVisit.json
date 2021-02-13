@@ -1,0 +1,26 @@
+{
+  "accessApp": {
+    "jobVisit": {
+      "home": {
+        "title": "Job Visits",
+        "createLabel": "Create a new Job Visit",
+        "createOrEditLabel": "Create or edit a Job Visit",
+        "notFound": "No Job Visits found"
+      },
+      "created": "A new Job Visit is created with identifier {{ param }}",
+      "updated": "A Job Visit is updated with identifier {{ param }}",
+      "deleted": "A Job Visit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Job Visit {{ id }}?"
+      },
+      "detail": {
+        "title": "Job Visit"
+      },
+      "arrived": "Arrived",
+      "departed": "Departed",
+      "charge": "Charge",
+      "workCarriedOut": "Work Carried Out",
+      "job": "Job"
+    }
+  }
+}

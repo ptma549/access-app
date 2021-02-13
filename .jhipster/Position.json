@@ -1,0 +1,29 @@
+{
+  "name": "Position",
+  "fields": [
+    {
+      "fieldName": "value",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "number",
+      "otherEntityRelationshipName": "positions",
+      "relationshipName": "number",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213155654",
+  "entityTableName": "position",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

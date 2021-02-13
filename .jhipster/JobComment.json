@@ -1,0 +1,29 @@
+{
+  "name": "JobComment",
+  "fields": [
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "job",
+      "otherEntityRelationshipName": "comments",
+      "relationshipName": "job",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213155254",
+  "entityTableName": "job_comment",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

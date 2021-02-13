@@ -1,0 +1,103 @@
+{
+  "name": "Job",
+  "fields": [
+    {
+      "fieldName": "reportedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientOrderRef",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "raiseDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "priority",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fault",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "instructions",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "occupier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "homeTel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "workTel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileTel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tenantName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "complete",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "position",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoice",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceDetails",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "jobComment",
+      "otherEntityRelationshipName": "job",
+      "relationshipName": "comments"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "jobLine",
+      "otherEntityRelationshipName": "job",
+      "relationshipName": "lines"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "jobVisit",
+      "otherEntityRelationshipName": "job",
+      "relationshipName": "visits"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "jobs",
+      "relationshipName": "client",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210213155154",
+  "entityTableName": "job",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

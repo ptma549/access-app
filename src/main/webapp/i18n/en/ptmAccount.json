@@ -1,0 +1,24 @@
+{
+  "accessApp": {
+    "ptmAccount": {
+      "home": {
+        "title": "Ptm Accounts",
+        "createLabel": "Create a new Ptm Account",
+        "createOrEditLabel": "Create or edit a Ptm Account",
+        "notFound": "No Ptm Accounts found"
+      },
+      "created": "A new Ptm Account is created with identifier {{ param }}",
+      "updated": "A Ptm Account is updated with identifier {{ param }}",
+      "deleted": "A Ptm Account is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ptm Account {{ id }}?"
+      },
+      "detail": {
+        "title": "Ptm Account"
+      },
+      "name": "Name",
+      "colour": "Colour",
+      "clients": "Clients"
+    }
+  }
+}

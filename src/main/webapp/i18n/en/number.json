@@ -1,0 +1,26 @@
+{
+  "accessApp": {
+    "number": {
+      "home": {
+        "title": "Numbers",
+        "createLabel": "Create a new Number",
+        "createOrEditLabel": "Create or edit a Number",
+        "notFound": "No Numbers found"
+      },
+      "created": "A new Number is created with identifier {{ param }}",
+      "updated": "A Number is updated with identifier {{ param }}",
+      "deleted": "A Number is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Number {{ id }}?"
+      },
+      "detail": {
+        "title": "Number"
+      },
+      "value": "Value",
+      "building": "Building",
+      "postcode": "Postcode",
+      "positions": "Positions",
+      "street": "Street"
+    }
+  }
+}
